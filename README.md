@@ -1,16 +1,22 @@
-## Hi there 👋
+# TryggTeknick
 
-<!--
-**tryggteknick/tryggteknick** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Webbplats för TryggTeknick – trygg och personlig teknikhjälp för seniorer i Västerås.
 
-Here are some ideas to get you started:
+## Domän
+https://tryggteknick.se/
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Publicering
+Webbplatsen publiceras med GitHub Pages från main-grenen.
+
+## Viktiga filer
+- index.html – innehåll och SEO
+- styles.css – grunddesign
+- site-fixes.css – säkerhet, integritet och tillgänglighet
+- app.js – meny och kontaktformulär
+- assets/ – logga, illustrationer och typsnitt
+- robots.txt – indexeringsregler
+- sitemap.xml – sitemap för sökmotorer
+- CNAME – koppling till tryggteknick.se
+
+## Kontaktformulär
+Formuläret använder FormSubmit och skickar till tryggteknick@gmail.com. Efter publicering ska formuläret testas; FormSubmit kan kräva en första aktivering via e-post.
