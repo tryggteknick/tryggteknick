@@ -1,0 +1,15 @@
+:root{--green:#46776e}
+.hp-field{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.security-section{background:#fffaf2;border-top:1px solid #f1e2c8;border-bottom:1px solid #f1e2c8}
+.security-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.security-points{display:grid;gap:18px}
+.security-points p{font-size:17px;line-height:1.75}
+.security-points strong{color:var(--ink)}
+.form-safety{margin:8px 0 20px;padding:12px 14px;border-left:3px solid var(--yellow);background:#fff8ec;border-radius:0 6px 6px 0;color:#4f5f61;font-size:14px;line-height:1.55}
+.privacy-section{background:#f7f9f8;border-top:1px solid var(--line)}
+.privacy-content{padding-block:44px;max-width:900px}
+.privacy-content h2{font-size:28px;margin-bottom:14px;letter-spacing:-.03em}
+.privacy-content p{font-size:15px;line-height:1.7;margin-top:10px}
+.privacy-content a,.faq-list a{text-decoration:underline;text-underline-offset:3px;color:var(--teal)}
+@media(max-width:800px){.security-layout{gap:40px}}
+@media(max-width:560px){.security-layout{grid-template-columns:1fr;gap:28px}.security-points p{font-size:16px}.privacy-content{padding-block:34px}.privacy-content h2{font-size:25px}}
