@@ -77,27 +77,5 @@
   });
   description.addEventListener('input',()=>description.setCustomValidity(''));
 
-  if(document.modelContext?.registerTool){
-    const lifecycle=new AbortController();
-    window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});
-    try{Promise.resolve(document.modelContext.registerTool({
-      name:'prepare_help_text',title:'Förbered en fråga till TryggTeknick',
-      description:'Fills the visible contact form with a local draft. Does not submit it or send email. The visitor must provide their email address and press Skicka fråga.',
-      inputSchema:{type:'object',properties:{description:{type:'string',minLength:5,maxLength:1500},category:{type:'string',enum:['','Tekniken hemma','Appar och digitala tjänster','Digital trygghet','Något annat']}},required:['description'],additionalProperties:false},
-      annotations:{readOnlyHint:false,untrustedContentHint:true},
-      execute(input){
-        const choices=['','Tekniken hemma','Appar och digitala tjänster','Digital trygghet','Något annat'];
-        if(!input||typeof input.description!=='string'||input.description.trim().length<5||input.description.length>1500||!choices.includes(input.category??''))throw new Error('Provide a valid category and a description of 5–1500 characters.');
-        trigger=document.querySelector('[data-help]');
-        $('#help-category').value=input.category??'';
-        description.value=input.description.trim();
-        description.setCustomValidity('');
-        closeMenu();
-        if(!dialog.open)dialog.showModal();
-        document.body.classList.add('dialog-open');
-        return {status:'draft_prepared',sent:false,bookingCreated:false,text:description.value};
-      }
-    },{signal:lifecycle.signal})).catch(()=>{});}catch{}
-  }
   $('#year').textContent=new Date().getFullYear();
 })();
