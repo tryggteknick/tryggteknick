@@ -1,4 +1,12 @@
 :root{--green:#46776e}
+.about-section.section{padding-block:12px}
+.about-visual img{height:auto}
+@media(max-width:560px){.about-section.section{padding-block:12px}}
+.brand-wordmark{width:250px;height:auto;overflow:visible}
+.brand-wordmark img{position:static;display:block;width:100%;max-width:100%;height:auto}
+@media(max-width:800px){.brand-wordmark{width:210px}}
+@media(max-width:560px){.brand-wordmark{width:180px}}
+@media(max-width:360px){.brand-wordmark{width:155px}}
 .hp-field{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .security-section{background:#fffaf2;border-top:1px solid #f1e2c8;border-bottom:1px solid #f1e2c8}
 .security-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
