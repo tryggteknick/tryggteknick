@@ -53,21 +53,36 @@
     try{
       const response=await fetch('https://formsubmit.co/ajax/tryggteknick@gmail.com',{
         method:'POST',
+        credentials:'omit',
+        referrerPolicy:'origin',
         headers:{'Content-Type':'application/json','Accept':'application/json'},
         body:JSON.stringify(Object.fromEntries(new FormData(form))),
         signal:controller.signal
       });
-      const data=await response.json();
-      if(!response.ok||(data.success!==true&&data.success!=='true'))throw new Error('Submission rejected');
-      if(/activat/i.test(data.message||''))throw new Error('Activation required');
+      const data=await response.json().catch(()=>null);
+      const serviceMessage=typeof data?.message==='string'?data.message.slice(0,300):'';
+      if(/activat|confirm.*email|verify.*email/i.test(serviceMessage))throw new Error('Activation required');
+      if(response.status===429)throw new Error('Rate limited');
+      if(!response.ok||(data?.success!==true&&data?.success!=='true')){
+        status.textContent=serviceMessage
+          ? 'FormSubmit kunde inte bekräfta skickandet: '+serviceMessage+' Din text finns kvar.'
+          : 'FormSubmit gav ett oväntat svar (HTTP '+response.status+'). Din text finns kvar. Försök igen om en stund.';
+        return;
+      }
       form.reset();
       status.textContent='';
       dialog.close();
       thanks.hidden=false;
     }catch(error){
-      status.textContent=error.message==='Activation required'
-        ? 'Mejlkontakten behöver aktiveras av oss först. Du kan tills vidare mejla tryggteknick@gmail.com direkt. Din text finns kvar.'
-        : 'Vi kunde inte bekräfta att meddelandet skickades. Din text finns kvar. Försök igen om en stund eller mejla tryggteknick@gmail.com.';
+      if(error.message==='Activation required'){
+        status.textContent='Mejlkontakten behöver aktiveras av oss först. Du kan tills vidare mejla tryggteknick@gmail.com direkt. Din text finns kvar.';
+      }else if(error.message==='Rate limited'){
+        status.textContent='För många försök på kort tid. Vänta en stund innan du försöker igen. Din text finns kvar.';
+      }else if(error.name==='AbortError'){
+        status.textContent='Svaret tog för lång tid. Vi kan inte bekräfta om meddelandet skickades. Din text finns kvar.';
+      }else{
+        status.textContent='Det gick inte att ansluta till FormSubmit. Kontrollera internetanslutningen och försök igen, eller mejla tryggteknick@gmail.com. Din text finns kvar.';
+      }
     }finally{
       clearTimeout(timeout);
       sending=false;

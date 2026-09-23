@@ -4,5 +4,8 @@
     <loc>https://tryggteknick.se/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
+</url>
+<url>
+<loc>https://tryggteknick.se/integritet.html</loc>
+</url>
 </urlset>

@@ -17,7 +17,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src https://formsubmit.co; form-action https://formsubmit.co; base-uri 'self'; object-src 'none'">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23105767'/%3E%3Cpath d='M7 15L16 7l9 8v10H7Z' fill='none' stroke='white' stroke-width='2.5' stroke-linejoin='round'/%3E%3Cpath d='M13 15h6v7h-6z' fill='%23ffc071'/%3E%3C/svg%3E">
 <link rel="stylesheet" href="./assets/fonts.css"><link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./site-fixes.css">
-<script src="./app.js" defer></script>
+<script src="./app.js?v=20260923-form-origin-2" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Hoppa till innehållet</a>
@@ -97,21 +97,14 @@
   <article id="ring-oss" class="contact-option"><div class="contact-icon"><svg class="icon"><use href="#phone"/></svg></div><div><h3>Prata med oss</h3><p>För dig som hellre vill ringa.</p><a class="contact-link" href="tel:+46720470375">072 047 03 75</a></div></article>
   <article class="contact-option"><div class="contact-icon"><svg class="icon"><use href="#message"/></svg></div><div><h3>Skriv med egna ord</h3><p>Berätta vad du vill ha hjälp med.</p><button class="contact-link" data-help="">Beskriv din fråga <svg class="icon"><use href="#arrow"/></svg></button><small>Du kan också mejla tryggteknick@gmail.com direkt.</small></div></article>
  </div></div></section>
- <section id="integritet" class="privacy-section">
-  <div class="container privacy-content">
-   <h2>Om uppgifter du skickar till oss</h2>
-   <p>När du använder kontaktformuläret använder vi din e-postadress och ditt meddelande för att kunna svara på din fråga. Formuläret skickas tekniskt via FormSubmit.</p>
-   <p><strong>Skriv inte lösenord, PIN-koder, BankID-koder, kortuppgifter eller andra känsliga uppgifter i formuläret.</strong></p>
-   <p>Har du frågor om uppgifter du har skickat kan du kontakta oss på <a href="mailto:tryggteknick@gmail.com">tryggteknick@gmail.com</a>.</p>
-  </div>
- </section>
 </main>
-<footer><div class="container footer-main"><a href="#" aria-label="TryggTeknick, till toppen"><img class="footer-logo" src="./assets/tryggteknick-logo.png" alt="TryggTeknick – Trygghet i hemmet" width="807" height="531" loading="lazy"></a><p>En tryggare digital vardag.<br>På dina villkor.</p><nav aria-label="Sidfot"><a href="#hjalp">Vår hjälp</a><a href="#om-oss">Om TryggTeknick</a><a href="#kontakt">Kontakt</a><a href="#integritet">Integritet</a></nav></div><div class="container footer-bottom"><span>© <span id="year">2026</span> TryggTeknick</span><span>Med omtanke om dig och din vardag.</span></div></footer>
+<footer><div class="container footer-main"><a href="#" aria-label="TryggTeknick, till toppen"><img class="footer-logo" src="./assets/tryggteknick-logo.png" alt="TryggTeknick – Trygghet i hemmet" width="807" height="531" loading="lazy"></a><p>En tryggare digital vardag.<br>På dina villkor.</p><nav aria-label="Sidfot"><a href="#hjalp">Vår hjälp</a><a href="#om-oss">Om TryggTeknick</a><a href="#kontakt">Kontakt</a><a href="./integritet.html">Integritet</a></nav></div><div class="container footer-bottom"><span>© <span id="year">2026</span> TryggTeknick</span><span>Med omtanke om dig och din vardag.</span></div></footer>
 <dialog id="help-dialog" aria-labelledby="dialog-title"><div class="dialog-content">
 <button class="dialog-close" type="button" aria-label="Stäng"><svg class="icon"><use href="#close"/></svg></button>
 <p class="eyebrow">VI BÖRJAR HÄR</p><h2 id="dialog-title">Vad behöver du<br><em>hjälp med?</em></h2><p>Du behöver inte använda tekniska ord.</p>
 <form id="help-form" action="https://formsubmit.co/tryggteknick@gmail.com" method="POST" accept-charset="UTF-8">
 <input type="hidden" name="_subject" value="Ny fråga från TryggTeknicks hemsida">
+<input type="hidden" name="_url" value="https://tryggteknick.se/">
 <input type="hidden" name="_template" value="table">
 <input class="hp-field" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
 <label for="help-category">Vad handlar din fråga om?</label>
@@ -119,6 +112,7 @@
 <label for="help-email">Din e-postadress</label><input id="help-email" type="email" name="email" autocomplete="email" maxlength="254" required aria-describedby="email-hint"><p id="email-hint" class="field-hint">Så att vi kan svara på din fråga.</p>
 <label for="help-description">Berätta med egna ord</label><textarea id="help-description" name="message" rows="4" minlength="5" maxlength="1500" required placeholder="Till exempel: Jag har en ny mobil och vill ha hjälp att komma igång."></textarea>
 <p class="form-safety">Skriv inte lösenord, PIN-koder, BankID-koder, kortuppgifter eller andra känsliga uppgifter.</p>
+<p class="field-hint">Din fråga förmedlas via FormSubmit till vår e-post. <a id="help-privacy-link" href="./integritet.html">Läs om personuppgifter och lagringstid</a>.</p>
 <button class="button form-submit" type="submit">Skicka fråga <svg class="icon"><use href="#arrow"/></svg></button>
 <p id="help-status" class="field-hint" role="status" aria-live="polite"></p>
 </form></div></dialog>
